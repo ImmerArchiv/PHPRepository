@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info>
+<entry
+   path="000"
+   revision="44"
+   kind="dir">
+<url>svn://dirk@svn2.friedenberger.net/ImmerArchiv/Suite/PHPRepository/tags/V1.4/000</url>
+<relative-url>^/Suite/PHPRepository/tags/V1.4/000</relative-url>
+<repository>
+<root>svn://dirk@svn2.friedenberger.net/ImmerArchiv</root>
+<uuid>d72cec19-d66b-4ce7-a5f1-de1e69949212</uuid>
+</repository>
+<commit
+   revision="44">
+<author>dirk</author>
+<date>2017-10-08T12:55:31.679968Z</date>
+</commit>
+</entry>
+</info>

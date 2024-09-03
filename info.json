@@ -1,0 +1,19 @@
+{
+  "state"       : "ok",
+  "message"     : "info is following",
+  "api_version" : "1.1",
+  "grant_type"  : "bearer", 
+  "check_sum"   : "md5",
+  "modules"     : {
+      "status"       : "status.php",
+      "create"       : "create.php",
+      "putfilepart"  : "putfilepart.php",
+      "appendfile"   : "appendfile.php",
+      "listall"      : "listall.php",
+      "listone"      : "listone.php",
+      "getfilepart"  : "getfilepart.php",
+      "downloadfile" : "downloadfile.php",
+      "downloadlog"  : "downloadlog.php",
+      "checksum"     : "checksum.php"
+  }
+}
