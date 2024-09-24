@@ -1,0 +1,22 @@
+version: "3.8"
+
+name: "immerarchiv"
+
+services:
+
+  web:
+    build: .
+    container_name: "php-repository"
+    volumes:
+      - ./data/conf:/var/www/html/conf
+      - ./data/BagItRepository:/var/BagItRepository
+    ports:
+      - "${WEB_PORT}:80"
+    networks:
+      - proxy 
+
+networks:
+  proxy:
+    name: "reverse-proxy"
+    external: true
+

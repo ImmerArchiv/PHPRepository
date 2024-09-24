@@ -222,7 +222,7 @@ class RequestManager {
 	}
 	function GetArrayData($key,$key2,$pattern)
 	{
-		return $this->validData($key ."/"+$key2, $this->GetArrayDataUnsecure($key,$key2),$pattern);
+		return $this->validData($key . "/" . $key2, $this->GetArrayDataUnsecure($key,$key2),$pattern);
 	}
 	
 	
