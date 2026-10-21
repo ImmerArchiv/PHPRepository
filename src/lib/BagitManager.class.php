@@ -63,7 +63,7 @@ class BagitManager {
 		foreach ( $info as $elm )
 			foreach ( $elm as $key => $value )
 			{   
-			   fwrite($fh, "$key: ".utf8_decode($value)."\r\n",1024);
+			   fwrite($fh, "$key: ".$value."\r\n",1024);
 			}
         fclose($fh);
 		
@@ -169,7 +169,7 @@ class BagitManager {
 		   if(ctype_space($line)) continue;
            list( $key, $value ) = explode( ":", $line, 2 );
 		   
-		   array_push($info , array ($key => utf8_encode(trim($value))));
+		   array_push($info , array ($key => trim($value)));
         }
         fclose($fh);
 	    return $info;

@@ -48,6 +48,7 @@ Feature: Repository API lifecycle
     And the bag page is empty
     When I list the test bag
     Then the API response status is 200
+    And the test bag description preserves UTF-8
     And the test file is listed
     When I request the test file checksum
     Then the API response status is 200

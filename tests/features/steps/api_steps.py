@@ -12,6 +12,7 @@ from behave import given, when, then
 
 TEST_BAGIT = "behave-test-bag"
 SECOND_TEST_BAGIT = "behave-test-bag-page2"
+TEST_BAG_DESCRIPTION = "Behave API lifecycle: Grüße 東京"
 TEST_FILENAME = "behave-test.txt"
 TEMP_FILENAME = "behave-test.part"
 TEST_FILE_CONTENT = b"Behave repository lifecycle test file.\n"
@@ -209,7 +210,7 @@ def step_create_test_bag(context):
         {
             "repository": context.repository,
             "bagit": TEST_BAGIT,
-            "info": [{"Description": "Behave API lifecycle test"}],
+            "info": [{"Description": TEST_BAG_DESCRIPTION}],
         },
     )
 
@@ -506,6 +507,11 @@ def step_test_file_is_listed(context):
     assert any(
         file["name"] == TEST_FILENAME for file in context.response_json["data"]
     )
+
+
+@then("the test bag description preserves UTF-8")
+def step_test_bag_description_preserves_utf8(context):
+    assert {"Description": TEST_BAG_DESCRIPTION} in context.response_json["info"]
 
 
 @then("the returned checksum matches the test file")
