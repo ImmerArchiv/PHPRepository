@@ -42,19 +42,20 @@ docker exec php-repository php cli-util/adduser.php <username> "100 MB"
 ## Tests
 The lifecycle test cleans generated `behave-*` BagIts and the log file in `data/BagItRepository/test` before running its five phases. It also checks `listall` pagination across two test Bags, including an empty page after the last Bag. The quota test performs the same cleanup before testing the exact `1 MB` limit. Both tests leave their newly created BagIts in place. Keep unrelated BagIts out of the test repository; phase 1 expects it to be empty after cleanup.
 
-Set these three environment variables outside the test process:
-
-- `API_BASE_URL`: API base URL, for example `http://localhost:8765`.
-- `API_BEARER_TOKEN`: plain-text bearer token for the repository, not the bcrypt hash stored in the configuration.
-- `API_REPOSITORY`: name of the existing empty repository.
+In Git Bash, create the local environment script from the example, replace the token placeholder with the repository's plain-text bearer token (not its bcrypt hash), then source it:
+```
+cp .test-env.sh.example .test-env.sh
+# Edit API_BEARER_TOKEN in .test-env.sh
+source ./.test-env.sh
+```
+The local `.test-env.sh` is ignored by Git so the bearer token is not committed. It sets `API_BASE_URL`, `API_BEARER_TOKEN`, and `API_REPOSITORY`.
 
 Install the test dependencies and run the lifecycle and security scenarios against a fresh empty repository:
 ```
 python -m pip install -r requirements-test.txt
-python -m behave tests/features/repository_lifecycle.feature tests/features/repository_security.feature
 ```
 
-For an HTML report, install the optional formatter and run:
+Test and xreate an HTML report
 ```
 python -m behave --format behave_html_formatter:HTMLFormatter --outfile reports/behave-report.html tests/features/
 ```
